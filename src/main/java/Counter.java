@@ -34,11 +34,13 @@ public class Counter {
 
 	public void triple() {
 		int i = 3;
+		String unusedText = "test"; // Code Smell: unused variable
+		String unusedText2 = "test2"; // Code Smell: unused variable
 		multiplyBy(i);
 	}
 
 	public void powerBy(int i) {
-		count = count ^ i;
+		count = count ^ i; // Bug: ^ adalah XOR bukan pangkat!
 	}
 
 	public boolean isCountEven() {
@@ -47,5 +49,16 @@ public class Counter {
 
 	public int getCount() {
 		return count;
+	}
+
+	// Code Smell: empty method
+	public void doNothing() {
+	}
+
+	// Code Smell: method tidak dipakai
+	public void unusedMethod() {
+		int x = 10;
+		int y = 0;
+		int z = x / y; // Bug: division by zero!
 	}
 }
