@@ -27,6 +27,6 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       run: |
         mvn verify sonar:sonar \
-        -Dsonar.projectKey=AlvinBagusF_basic-java-maven-sonar \
-        -Dsonar.organization=alvinbagusf \
+        -Dsonar.projectKey=basic-java-maven-sonar \
+        -Dsonar.organization=AlvinBagusF \
         -Dsonar.host.url=https://sonarcloud.io
