@@ -8,11 +8,12 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0   # ← WAJIB untuk SonarCloud
 
     - name: Set up JDK 17
       uses: actions/setup-java@v3
@@ -28,5 +29,6 @@ jobs:
       run: |
         mvn verify sonar:sonar \
         -Dsonar.projectKey=AlvinBagusF_basic-java-maven-sonar2 \
-        -Dsonar.organization=AlvinBagusF \
-        -Dsonar.host.url=https://sonarcloud.io
+        -Dsonar.organization=alvinbagusf \
+        -Dsonar.host.url=https://sonarcloud.io \
+        -Dsonar.token=${{ secrets.SONAR_TOKEN }}
